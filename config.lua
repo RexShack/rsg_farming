@@ -1,6 +1,6 @@
 Config = {}
 
-Config.TimeToGrow = 60 -- 30 mins / testing 60 = 60 seconds
+Config.TimeToGrow = 1800 -- 1800 = 30 mins / testing 60 = 60 seconds
 
 -- farm shop
 Config.FarmShop = {
