@@ -29,6 +29,22 @@ exports['qbr-core']:CreateUseableItem("tomatoseed", function(source, item)
     local src = source
 	TriggerClientEvent("rsg_farming:client:planting", src, item.name, `CRP_TOMATOES_AA_SIM`, `CRP_TOMATOES_AA_SIM`, `CRP_TOMATOES_AA_SIM`)
 end)
+-- use wheatseed
+exports['qbr-core']:CreateUseableItem("wheatseed", function(source, item)
+    local src = source
+	TriggerClientEvent("rsg_farming:client:planting", src, item.name, `CRP_WHEAT_DRY_AA_SIM`, `CRP_WHEAT_DRY_AA_SIM`, `CRP_WHEAT_DRY_AA_SIM`)
+end)
+--use berry seed
+exports['qbr-core']:CreateUseableItem("berryseed", function(source, item)
+    local src = source
+	TriggerClientEvent("rsg_farming:client:planting", src, item.name, `CRP_BERRY_AA_SIM`, `CRP_BERRY_AA_SIM`, `CRP_BERRY_AA_SIM`)
+end)
+
+--use potato
+exports['qbr-core']:CreateUseableItem("potatoseed", function(source, item)
+    local src = source
+	TriggerClientEvent("rsg_farming:client:planting", src, item.name, `CRP_POTATO_AA_SIM`, `CRP_POTATO_AA_SIM`, `CRP_POTATO_AA_SIM`)
+end)
 
 -- use wateringcan
 exports['qbr-core']:CreateUseableItem("wateringcan", function(source, item)
@@ -67,6 +83,21 @@ AddEventHandler('rsg_farming:server:giveitem', function(plant)
 		xPlayer.Functions.AddItem('tomato', randomReward)
 		TriggerClientEvent('inventory:client:ItemBox', src, sharedItems["tomato"], "add")
 		TriggerClientEvent('QBCore:Notify', src, 8, 'Successful Harvest', 5000, 'you harvested '..randomReward..' tomato', 'inventory_items_mp', 'generic_bundle_provisions', 'COLOR_WHITE')
+	--berry
+	elseif plant == `CRP_BERRY_AA_SIM` then
+		xPlayer.Functions.AddItem('raspberry', randomReward)
+		TriggerClientEvent('inventory:client:ItemBox', src, sharedItems["raspberry"], "add")
+		TriggerClientEvent('QBCore:Notify', src, 8, 'Successful Harvest', 5000, 'you harvested '..randomReward..' raspberry', 'inventory_items_mp', 'generic_bundle_provisions', 'COLOR_WHITE')
+	--wheat
+	elseif plant == `CRP_WHEAT_DRY_AA_SIM` then
+		xPlayer.Functions.AddItem('wheat', randomReward)
+		TriggerClientEvent('inventory:client:ItemBox', src, sharedItems["wheat"], "add")
+		TriggerClientEvent('QBCore:Notify', src, 8, 'Successful Harvest', 5000, 'you harvested '..randomReward..' wheat', 'inventory_items_mp', 'generic_bundle_provisions', 'COLOR_WHITE')	else
+	
+	elseif plant == `CRP_POTATO_AA_SIM` then
+		xPlayer.Functions.AddItem('potato', randomReward)
+		TriggerClientEvent('inventory:client:ItemBox', src, sharedItems["potato"], "add")
+		TriggerClientEvent('QBCore:Notify', src, 8, 'Successful Harvest', 5000, 'you harvested '..randomReward..' potato', 'inventory_items_mp', 'generic_bundle_provisions', 'COLOR_WHITE')	else
 	else
 		TriggerClientEvent('QBCore:Notify', src, 9, 'something went wrong!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
